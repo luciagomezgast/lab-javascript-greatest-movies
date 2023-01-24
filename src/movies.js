@@ -23,7 +23,7 @@ function howManyMovies(moviesArray) {
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 function scoresAverage(moviesArray) {
-    if (moviesArray.length === 0) return 0;
+   if (moviesArray.length === 0) return 0; 
 
     let totalScore = moviesArray.reduce(function (accumulator, currentVal) {
         if (!currentVal.score) return accumulator;
@@ -34,6 +34,8 @@ function scoresAverage(moviesArray) {
 
     let rounded = Number(average.toFixed(2));
     return rounded
+
+    //let average = Number((totalScore / moviesArray.length).toFixed(2))
 }
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
@@ -64,10 +66,10 @@ function orderAlphabetically(moviesArray) {
     let newArray = Array.from(moviesArray)
 
     let alphaMovies = newArray.sort((a,b) =>{
-        a.title.localeCompare(b.title)
+       return a.title.localeCompare(b.title)
     });
 
-    let shotArray = alphaMovies.slice(0, 19);
+   /*  let shotArray = alphaMovies.slice(0, 19);
 
     let arrayTitle = []
     for(let i=0; i<shotArray.length; i++){
@@ -75,7 +77,18 @@ function orderAlphabetically(moviesArray) {
         arrayTitle.push(pelicula)
     }
     return arrayTitle  
+} */
+
+ /* let resultarray = []
+ newArray.forEach(movie, i => {
+    if(i<20) resultarray.push(movie.title);
+    
+ });  */
+
+ let moviesCopy20 = newArray.slice(0,20);
+ return newArray.map( (movie)=> movie.title)
 }
+
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) { }
